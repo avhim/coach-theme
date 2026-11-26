@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --ink: #19332d; --muted: #64736e; --cream: #f7f5ef; --accent: #c97755; }
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply m-0 bg-white text-slate-800 antialiased; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  h1, h2, h3 { @apply font-semibold tracking-tight; color: var(--ink); }
+  a { @apply no-underline; color: inherit; }
+  img { @apply h-auto max-w-full; }
+}
+@layer components {
+  .container { @apply mx-auto w-full max-w-7xl px-6; }
+  .site-header { @apply relative z-10 border-b border-slate-100 bg-white; }
+  .header-inner { @apply flex min-h-20 items-center justify-between gap-6; }
+  .site-brand { @apply text-xl font-bold tracking-tight; color: var(--ink); }
+  .custom-logo { @apply max-h-12 w-auto; }
+  .primary-nav { @apply flex items-center gap-8 text-sm font-medium; }
+  .primary-nav ul { @apply m-0 flex list-none items-center gap-7 p-0; }
+  .primary-nav a:hover, .text-link:hover { color: var(--accent); }
+  .nav-cta, .button { @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-white transition; background: var(--ink); }
+  .button:hover, .nav-cta:hover { background: var(--accent); color: white; }
+  .menu-toggle { @apply hidden border-0 bg-transparent text-2xl; }
+  .hero { @apply flex min-h-[620px] items-center bg-cover bg-center; background-color: var(--ink); }
+  .hero__content { @apply py-24 text-white; }
+  .hero h1 { @apply mb-6 max-w-3xl text-5xl font-semibold leading-tight text-white md:text-7xl; }
+  .hero__intro { @apply mb-8 max-w-2xl text-lg leading-8 text-white/90; }
+  .eyebrow { @apply mb-4 text-xs font-bold uppercase tracking-[.18em]; color: var(--accent); }
+  .hero .eyebrow { color: #f2b89e; }
+  .hero .button, .image-overlay .button { @apply bg-white; color: var(--ink); }
+  .hero .button:hover, .image-overlay .button:hover { @apply bg-orange-100; }
+  .content-section { @apply py-20 md:py-28; }
+  .page-content { @apply py-10; }
+  .section-heading, .page-title { @apply mx-auto mb-12 max-w-3xl text-center; }
+  .section-heading h2, .page-title h1 { @apply text-4xl leading-tight md:text-5xl; }
+  .card-grid { @apply grid gap-8 md:grid-cols-2 lg:grid-cols-3; }
+  .card { @apply overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm; }
+  .card__image { @apply block aspect-[4/3] overflow-hidden bg-slate-100; }
+  .card__image img { @apply h-full w-full object-cover transition duration-300; }
+  .card:hover .card__image img { @apply scale-105; }
+  .card__body { @apply p-7; }
+  .card__body h2, .card__body h3 { @apply mb-3 text-2xl; }
+  .card__body p { @apply leading-7 text-slate-600; }
+  .meta { @apply text-xs font-semibold uppercase tracking-wider text-slate-500; }
+  .text-link, .section-link a { @apply font-semibold; color: var(--ink); }
+  .section-link { @apply mt-10 text-center; }
+  .image-overlay { @apply flex min-h-[420px] items-center bg-cover bg-center py-16 text-white md:min-h-[520px]; background-color: var(--ink); }
+  .image-overlay__inner { @apply w-full; }
+  .image-overlay__copy { @apply max-w-xl; }
+  .image-overlay__copy h2 { @apply mb-5 text-4xl leading-tight text-white md:text-5xl; }
+  .image-overlay__copy p { @apply mb-7 text-lg leading-8 text-white/90; }
+  .overlay-content--center .image-overlay__copy { @apply mx-auto text-center; }
+  .overlay-content--right .image-overlay__copy { @apply ml-auto text-right; }
+  .featured-image { @apply mb-10 overflow-hidden rounded-2xl; }
+  .featured-image img { @apply block w-full object-cover; }
+  .article-layout { @apply max-w-4xl py-16 md:py-24; }
+  .article-intro { @apply text-xl leading-8 text-slate-600; }
+  .prose { @apply prose-lg mx-auto max-w-none prose-headings:text-[var(--ink)] prose-a:text-orange-700; }
+  .pagination { @apply mt-12; }
+  .site-footer { @apply bg-slate-900 py-8 text-sm text-slate-300; }
+  .footer-inner { @apply flex flex-col justify-between gap-2 md:flex-row; }
+}
+@media (max-width: 767px) {
+  .menu-toggle { display: block; }
+  .primary-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 1rem; padding: 1.5rem; background: white; box-shadow: 0 12px 24px #0001; }
+  .primary-nav.is-open { display: flex; }
+  .primary-nav ul { flex-direction: column; align-items: stretch; gap: 1rem; }
+  .hero { min-height: 540px; }
+}
